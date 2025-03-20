@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Toy Preview Isolation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Webcam Toy Preview Isolation</h1>
+        <p>This code helps you isolate the camera preview on Webcam Toy. <br>
+             Use the arrow keys to switch between effects.</p>
+
+        <h3> How to Use ✨ </h3>
+        <ol>
+            <li>Go to <a href="https://webcamtoy.com/" target="_blank">WebcamToy</a></li>
+            <li>Click the <strong>Ready?</strong> button and allow camera access.</li>
+            <li>Open the <strong>Console</strong> (Press <code>F12</code> → Go to <code>Console</code>)</li>
+            <li>Copy & paste the following script, then press <code>Enter</code></li>
+        </ol>
+
+        <pre class="code-container"><code class="language-javascript" id="code">
+
+    document.querySelector('header').style.display = 'none';
+    document.querySelector('#toy-view').style.zIndex = '100';
+    document.querySelector('#content').style.transform = 'scale(1.07)';
+    document.querySelector('#content').style.setProperty('top', '0', 'important');
+    if (confirm("Do you want to go fullscreen?")) {
+        document.documentElement.requestFullscreen().catch(err => {
+            console.error(`Fullscreen error: ${err.message}`);
+        });
+    }
+
+        </code></pre>
+
+        <button id="copyButton" onclick="copyCode()">📋 Copy Code</button>
+
+        <ol>
+            <p>Now you can record without any distractions! Use  <a href="https://obsproject.com/download"
+                    target="_blank">OBS Studio</a>  for recording, it's free!</p>
+        </ol>
+    </div>
+
+    <script src="script.js"> </script>
+</body>
+
+</html>
